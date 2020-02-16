@@ -38,25 +38,30 @@ public class Task2 {
      * @param inclusively входят ли границы в заданный даипазон
      */
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
-        if (!inclusively) {
-            leftBound++;
-            rightBound--;
+        try {
+            if (number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue())
+                if (!inclusively && (number.intValue() == leftBound.intValue() || number.intValue() == rightBound.intValue()))
+                    return false;
+                else return true;
+            else return false;
         }
-        return number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue();
+        catch (NullPointerException e) {
+            return false;
+        }
     }
 
     /**
      * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9
      */
     boolean atLeastOneIsDigit(char c1, char c2, char c3) {
-        return (c1 >= '1' && c1 <= '9') || (c2 >= '1' && c2 <= '9') || (c3 >= '1' && c3 <= '9');
+        return (c1 >= '0' && c1 <= '9') || (c2 >= '0' && c2 <= '9') || (c3 >= '0' && c3 <= '9');
     }
 
     /**
      * Даны два вещественных числа. Определите равны ли они
      */
     boolean areRealNumbersEqual(double a, double b) {
-        return a == b;
+        return Math.abs(a - b) < 0.00001;
     }
 
     /**
