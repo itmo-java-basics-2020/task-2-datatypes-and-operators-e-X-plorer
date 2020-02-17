@@ -39,11 +39,6 @@ public class Task2 {
      */
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
         try {
-            /*if (number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue())
-                if (!inclusively && (number.intValue() == leftBound.intValue() || number.intValue() == rightBound.intValue()))
-                    return false;
-                else return true;
-            else return false;*/
             if (!inclusively) {
                 leftBound++;
                 rightBound--;
