@@ -39,10 +39,18 @@ public class Task2 {
      */
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
         try {
-            if (number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue())
+            /*if (number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue())
                 if (!inclusively && (number.intValue() == leftBound.intValue() || number.intValue() == rightBound.intValue()))
                     return false;
                 else return true;
+            else return false;*/
+            if (!inclusively) {
+                leftBound++;
+                rightBound--;
+            }
+            if (number.intValue() >= leftBound.intValue() && number.intValue() <= rightBound.intValue()) {
+                return true;
+            }
             else return false;
         }
         catch (NullPointerException e) {
@@ -51,7 +59,7 @@ public class Task2 {
     }
 
     /**
-     * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9
+     * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9 <- ОШИБКА В УСЛОВИИ!
      */
     boolean atLeastOneIsDigit(char c1, char c2, char c3) {
         return (c1 >= '0' && c1 <= '9') || (c2 >= '0' && c2 <= '9') || (c3 >= '0' && c3 <= '9');
